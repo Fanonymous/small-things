@@ -1,0 +1,178 @@
+<html> 
+<head> 
+<title>phpStudy js 计算24</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+<script language="JavaScript"> 
+/////////// 
+//函数名称：24点游戏计算函数 
+//设计：勇敢的心(bravexin) 
+//版权所有，如需要拷贝请保持这段申明 
+/////////// 
+/////////// 
+//函数名称：24点游戏计算函数 
+//设计：苏永东 
+function main() 
+{ 
+    var typestate  
+    var exists= false 
+    var numbervalue = new Array(); 
+    var evaltype = new Array(); 
+    var jisuanfua = new Array(); 
+    var jisuanfub = new Array(); 
+    var jisuanfuc = new Array(); 
+     
+    for (i=0;i<4;i++) 
+    { 
+        if (document.all('input'+i).value=='') 
+        { 
+            alert('必须把四个数字输全') 
+            return 
+        }else{ 
+        numbervalue[i]=document.all('input'+i).value 
+            } 
+    }    //数字排列有4!=12个情况 
+    //组合方式一:无括号 a+b+c+d 
+    //组合方式二:有一个括号 (a+b)+c+d;a+(b+c)+d;a+b+(c+d); 
+    //组合方式三:有二个括号 (a+b)+(c+d);((a+b)+c)+d 
+    //总结下来都可以认为是存在两个括号的情况 
+    //typestate='('+numbervalue[i] + jisuanfua[x] + numbervalue[j] + ')'+jisuanfub[y] +'('+ numbervalue[k] + jisuanfuc[z] + numbervalue[l]+')' 
+    //typestate='('+'('+numbervalue[i] + jisuanfua[x] + numbervalue[j] +')'+ jisuanfub[y] + numbervalue[k] +')'+ jisuanfuc[z] + numbervalue[l] 
+    //执行组合方式    //符号种类 + - * /  
+    evaltype[0]='+' 
+    evaltype[1]='-' 
+    evaltype[2]='*' 
+    evaltype[3]='/' 
+    for (t=0;t<4 ;t++ ) 
+    { 
+        jisuanfua[t]=evaltype[t] 
+        jisuanfub[t]=evaltype[t] 
+        jisuanfuc[t]=evaltype[t] 
+    }    for (x=0;x<4 ;x++ ) 
+    { 
+        if (exists==true) 
+        { 
+            return 
+        } 
+        for (y=0;y<4 ;y++) 
+        { 
+            if (exists==true) 
+            { 
+                return 
+            } 
+            for (z=0;z<4;z++) 
+            { 
+                ///下面开始组合方式 
+                for (i=0;i<4;i++) 
+                { 
+                    for (j=0;j<4;j++) 
+                    { 
+                        if (j==i) 
+                        { 
+                            continue 
+                        }else{ 
+                            for (k=0;k<4;k++) 
+                            { 
+                                if ((k==i)||(k==j)) 
+                                { 
+                                    continue 
+                                }else{ 
+                                    for (l=0;l<4;l++) 
+                                    { 
+                                        if ((l==i)||(l==j)||(l==k)) 
+                                        { 
+                                            continue 
+                                        }else{ 
+                                            typestate='('+numbervalue[i] + jisuanfua[x] + numbervalue[j] + ')'+jisuanfub[y] +'('+ numbervalue[k] + jisuanfuc[z] + numbervalue[l]+')' 
+                                            if (checkvalue(typestate)==24) 
+                                            { 
+                                                document.all.endtext.value=typestate 
+                                                exists=true 
+                                                break 
+                                            }else{ 
+                                                typestate='('+'('+numbervalue[i] + jisuanfua[x] + numbervalue[j] +')'+ jisuanfub[y] + numbervalue[k] +')'+ jisuanfuc[z] + numbervalue[l] 
+                                                if (checkvalue(typestate)==24) 
+                                                { 
+                                                    document.all.endtext.value=typestate 
+                                                    exists=true 
+                                                    break 
+                                                }else{  
+                                                    typestate='('+numbervalue[i] + jisuanfua[x] +'('+  numbervalue[j] + jisuanfub[y] + numbervalue[k] +')'+')'+ jisuanfuc[z] + numbervalue[l] 
+                                                    if (checkvalue(typestate)==24) 
+                                                    { 
+                                                        document.all.endtext.value=typestate 
+                                                        exists=true 
+                                                        break 
+                                                    } 
+                                                } 
+                                            } 
+                                        } 
+                                    } 
+                                } 
+                            } 
+                        } 
+                    } 
+                } 
+            //结束组合方式 
+            } 
+        } 
+    } 
+    if (exists!='true') 
+    { 
+        document.all.endtext.value='这四个数不存在可能,请重新输入' 
+    } 
+}function checkvalue(a) 
+{ 
+        var b 
+        b=eval(a) 
+        return (b) 
+}function FnCheckInput(Evcode,Evid) 
+{ 
+        obj=Evid 
+        objvalue=document.all(Evid).value 
+    if ((Evcode<48)||(Evcode>57)) 
+    { 
+        alert('请输入合法数字') 
+        window.setTimeout("FnWrite(obj,objvalue)",10); 
+    } 
+}function FnWrite(Evid,Evvalue) 
+{ 
+    document.all(Evid).value=Evvalue 
+}</script> 
+</head><body bgcolor="#FFFFFF" text="#000000"> 
+<table width="75%" border="1" cellspacing="0" cellpadding="0" align="center"> 
+  <tr>  
+    <td align="center">  
+      <p>第一个数  
+        <input type="text" name="input0" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)"> 
+      </p> 
+    </td> 
+  </tr> 
+  <tr>  
+    <td align="center"> 第二个数  
+      <input type="text" name="input1" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)"> 
+    </td> 
+  </tr> 
+  <tr>  
+    <td align="center"> 第三个数  
+      <input type="text" name="input2" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)"> 
+    </td> 
+  </tr> 
+  <tr>  
+    <td align="center"> 第四个数  
+      <input type="text" name="input3" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)"> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td align="center" height="29"> 最终结果  
+      <input type="text" name="endtext" size="30" readonly> 
+    </td> 
+  </tr> 
+  <tr>  
+    <td align="center" height="29">  
+      <input type="submit" name="Submit" value="检测" onclick="main()"> 
+    </td> 
+  </tr> 
+</table> 
+<p>  </p> 
+</body> 
+</html>

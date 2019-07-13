@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>留言</title>
+    <style>
+        .label{
+            line-height: 50px;
+            padding-left: 2em;
+        }
+        input{
+            height: 28px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <p>粉丝留言</p>
+        <div class="label">
+            <span>称&nbsp;呼：</span>
+            <input type="text" placeholder="请输入">
+        </div>
+        <div class="label">
+            <span>电&nbsp;话：</span>
+            <input type="text" placeholder="请输入">
+        </div>
+        <div class="label">
+            <span>邮&nbsp;箱：</span>
+            <input type="text" placeholder="请输入">
+        </div>
+        <div class="label">
+            <span>留言互动：</span>
+        </div>
+        <div class="label">
+            <textarea rows="10" cols="48"> </textarea>
+        </div>
+        <div class="label">
+            <button onclick="hand()">提交留言</button>
+        </div>
+    </div>
+</body>
+<script>
+    function hand() {
+        alert('留言成功！');
+    }
+</script>
+</html>

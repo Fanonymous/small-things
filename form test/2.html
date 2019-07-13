@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二题</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 800px;
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+        .change img{
+            width: 250px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <button onclick="handalert()">弹出提示消息</button>
+        <div class="change" style="margin-top: 40px;">
+            <img src="images/l1.jpg" alt="" id="img1">
+            <img src="images/l2.jpg" alt="" id="img2">
+        </div>
+        <button onclick="handChange()">交换图像</button>
+    </div>
+</body>
+<script>
+    var a = 1;
+function handalert() {
+    alert('通知，今晚八点在二楼会议室开会！请准时参加');
+}
+function handChange() {
+    if (a % 2) {
+        document.getElementById('img1').src = 'images/l2.jpg';
+        document.getElementById('img2').src = 'images/l1.jpg'
+    }else {
+        document.getElementById('img1').src = 'images/l1.jpg';
+        document.getElementById('img2').src = 'images/l2.jpg'
+    }
+    a++;
+}
+
+window.onload = function() {
+    document.oncontextmenu = function(e) {
+        var event = e || window.event;
+        event.preventDefault();
+        alert('不能使用鼠标右键！');
+    }
+}
+</script>
+</html>

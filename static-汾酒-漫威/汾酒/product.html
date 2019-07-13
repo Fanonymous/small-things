@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+        .clear {
+            max-width: 1200px;
+            margin: 5px auto 20px;
+        }
+        .clear:after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+        .img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .transition3 {
+            -webkit-transition: all .3s ease-in-out 0s;
+            -moz-transition: all .3s ease-in-out 0s;
+            -ms-transition: all .3s ease-in-out 0s;
+            -o-transition: all .3s ease-in-out 0s;
+            transition: all .3s ease-in-out 0s;
+        }
+        .pic{
+            width: 24%;
+            margin: 0 0.5% 10px;
+            float: left;
+            background: #EEEEEE;
+            overflow: hidden;
+        }
+        dl.pic dd a{
+            font-size: 18px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            color: #363636;
+            border-bottom: 1px dashed #CCCCCC;
+        }
+        .img-h{
+            height: 200px;
+            width: 200px;
+        }
+        dt{
+            text-align: center;
+        }
+        dd{
+            font-size: 14px;
+            color: #666666;
+            line-height: 24px;
+            padding: 5px 10px;
+            position: relative;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="items">
+        <div class="clear">
+                <dl class="pic">
+                    <dt><img src="images/a1.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.0L</i>
+                        <i>酒精纯度：40%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+                <dl class="pic">
+                    <dt><img src="images/a2.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.0L</i>
+                        <i>酒精纯度：50%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+                <dl class="pic">
+                    <dt><img src="images/a3.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.5L</i>
+                        <i>酒精纯度：60%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+                <dl class="pic">
+                    <dt><img src="images/a4.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.0L</i>
+                        <i>酒精纯度：45%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+                <dl class="pic">
+                    <dt><img src="images/a5.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.0L</i>
+                        <i>酒精纯度：52%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+                <dl class="pic">
+                    <dt><img src="images/a6.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.5L</i>
+                        <i>酒精纯度：50%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+                <dl class="pic">
+                    <dt><img src="images/a7.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.5L</i>
+                        <i>酒精纯度：48%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+                <dl class="pic">
+                    <dt><img src="images/a8.jpg" class="img-h"/></dt>
+                    <dd class="transition3">
+                        <i>规格： 1.5L</i>
+                        <i>酒精纯度：60%vol</i>
+                        <span class="transition3"></span>
+                    </dd>
+                </dl>
+        </div>
+    </div>
+</body>
+</html>

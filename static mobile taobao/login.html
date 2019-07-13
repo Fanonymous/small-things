@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="css/login.css" rel="stylesheet" media="all" />
+    <title>登录</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .mask-layer{
+            width: 100%;
+            height: 100%;
+            background: #409eff;
+            z-index: 999;
+            position: absolute;
+            line-height: 550px;
+            color: #f40;
+            font-size: 60px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body style="height:100%;">
+    <div class="content">
+        <div class="login">
+            <div class="title">欢迎&nbsp;·&nbsp;登录</div>
+            <div class="line">
+                <img class="smallImg" src="images/icon-4.png">
+                <input placeholder="请输入账号" type="text">
+            </div>
+            <div class="line">
+                <img class="smallImg" src="images/icon-5.png">
+                <input placeholder="请输入密码" type="password">
+            </div>
+            <button type="button" class="logBut"><a href="index.html">登&nbsp;&nbsp;录</a></button>
+        </div>
+    </div>
+    <div class="mask-layer">购物中心</div>
+</body>
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            document.getElementsByClassName('mask-layer')[0].style.display="none";
+        }, 5000)
+    }
+</script>
+</html>

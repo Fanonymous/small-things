@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFS</title>
+    <style>
+        .div {
+            width: 50px;
+            height: 50px;
+            box-sizing: border-box;
+            background-color: #ccc;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 40px;
+            line-height: 50px;
+            border: 1px solid black;
+            text-align: center;
+            transition: all 0s;
+            -moz-transition: all 0s; /* Firefox 4 */
+            -webkit-transition: all 0s; /* Safari 和 Chrome */
+            -o-transition: all 0s; /* Opera */
+        }
+        .eightPuzzles,.end-status {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        .step-context{
+            position: absolute;
+            top: 20px;
+            left: 400px;
+        }
+        .context{
+            height: 550px;
+            width: 350px;
+            overflow-y: auto;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="begin()">开始</button>
+    <span>-->宽度优先搜索</span>
+    <h2>开始状态</h2>
+    <div class="eightPuzzles">
+        <div id="0" class="div">0</div>
+        <div id="1" class="div">1</div>
+        <div id="2" class="div">2</div>
+        <div id="3" class="div">3</div>
+        <div id="4" class="div">4</div>
+        <div id="5" class="div">5</div>
+        <div id="6" class="div">6</div>
+        <div id="7" class="div">7</div>
+        <div id="8" class="div">8</div>
+    </div>
+    <h2>目标状态</h2>
+    <div class="end-status">
+        <div id="10" class="div">0</div>
+        <div id="11" class="div">1</div>
+        <div id="12" class="div">2</div>
+        <div id="13" class="div">3</div>
+        <div id="14" class="div">4</div>
+        <div id="15" class="div">5</div>
+        <div id="16" class="div">6</div>
+        <div id="17" class="div">7</div>
+        <div id="18" class="div">8</div>
+    </div>
+    <div class="step-context">
+        <div>移动步骤</div>
+        <div class="context"></div>
+    </div>
+    <script src="./jquery.min.js"></script>
+    <script src="./test.js"></script>
+    <script>
+        var option = {
+            startNode: [
+                [2, 6, 3],
+                [4, 8, 0],
+                [7, 1, 5]
+            ],
+            endNode: [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8]
+            ],
+            animateTime: '1000'
+        }
+        window.onload = function () {
+            option.startNode.forEach(function(item, index) {
+                item.forEach(function(obj, i) {
+                    $('#' + obj).css({left: i * 50, top: index * 50})
+                })
+            })
+
+            option.endNode.forEach(function(item, index) {
+                item.forEach(function(obj, i) {
+                    var num = obj + 10
+                    $('#' + num).css({left: i * 50, top: index * 50})
+                })
+            })
+
+            $('.div').css({
+                'transition': 'all '+ option.animateTime+'ms',
+                '-moz-transition': 'all '+ option.animateTime+'ms',
+                '-webkit-transition': 'all '+ option.animateTime+'ms',
+                '-o-transition': 'all '+ option.animateTime+'ms'
+            })
+        }
+        function begin() {
+            var eightPuzzles = new EightPuzzles(option)
+            eightPuzzles.solveEightPuzzles()
+        }
+    </script>
+</body>
+</html>

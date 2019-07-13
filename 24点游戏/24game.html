@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>24点游戏</title>
+    <style>
+        .left-label{
+            padding-left: 1em;
+        }
+        .row{
+            line-height: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="row">
+            <span class="left-label">数字一：</span>
+            <input type="text" name="input0" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)">
+        </div>
+        <div class="row">
+            <span class="left-label">数字二：</span>
+            <input type="text"name="input1" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)">
+        </div>
+        <div class="row">
+            <span class="left-label">数字三：</span>
+            <input type="text" name="input2" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)">
+        </div>
+        <div class="row">
+            <span class="left-label">数字四：</span>
+            <input type="text" name="input3" size="30" onKeyPress="FnCheckInput(event.keyCode,this.name)">
+        </div>
+        <div class="row">
+            <span>最终结果：</span>
+            <input type="text" name="endtext" size="30" readonly> 
+        </div>
+        <button onclick="main()" style="margin-left: 285px;">计算</button>
+    </div>
+</body>
+<script>
+    function main() { 
+        var typestate  
+        var exists= false 
+        var numbervalue = new Array(); 
+        var evaltype = new Array(); 
+        var jisuanfua = new Array(); 
+        var jisuanfub = new Array(); 
+        var jisuanfuc = new Array(); 
+     
+    for (i=0;i<4;i++) { 
+        if (document.all('input'+i).value=='') { 
+            alert('必须把四个数字输全') 
+            return 
+        }else { 
+            numbervalue[i]=document.all('input'+i).value 
+        } 
+    }   
+    evaltype[0]='+' 
+    evaltype[1]='-' 
+    evaltype[2]='*' 
+    evaltype[3]='/' 
+    for (t=0;t<4 ;t++ ) { 
+        jisuanfua[t]=evaltype[t] 
+        jisuanfub[t]=evaltype[t] 
+        jisuanfuc[t]=evaltype[t] 
+    }    
+    for (x=0;x<4 ;x++ ) { 
+        if (exists==true) { 
+            return 
+        } 
+        for (y=0;y<4 ;y++) { 
+            if (exists==true) { 
+                return 
+            } 
+            for (z=0;z<4;z++) { 
+                for (i=0;i<4;i++) { 
+                    for (j=0;j<4;j++) { 
+                        if (j==i) { 
+                            continue 
+                        }else { 
+                            for (k=0;k<4;k++) { 
+                                if ((k==i)||(k==j)) { 
+                                    continue 
+                                }else { 
+                                    for (l=0;l<4;l++) { 
+                                        if ((l==i)||(l==j)||(l==k)) { 
+                                            continue 
+                                        }else { 
+                                                typestate='('+numbervalue[i] + jisuanfua[x] + numbervalue[j] + ')'+jisuanfub[y] +'('+ numbervalue[k] + jisuanfuc[z] + numbervalue[l]+')' 
+                                                if (checkvalue(typestate)==24) { 
+                                                    document.all.endtext.value=typestate 
+                                                    exists=true 
+                                                    break 
+                                                }else { 
+                                                    typestate='('+'('+numbervalue[i] + jisuanfua[x] + numbervalue[j] +')'+ jisuanfub[y] + numbervalue[k] +')'+ jisuanfuc[z] + numbervalue[l] 
+                                                    if (checkvalue(typestate)==24) { 
+                                                        document.all.endtext.value=typestate 
+                                                        exists=true 
+                                                        break 
+                                                    }else {  
+                                                        typestate='('+numbervalue[i] + jisuanfua[x] +'('+  numbervalue[j] + jisuanfub[y] + numbervalue[k] +')'+')'+ jisuanfuc[z] + numbervalue[l] 
+                                                        if (checkvalue(typestate)==24) { 
+                                                            document.all.endtext.value=typestate 
+                                                            exists=true 
+                                                            break 
+                                                        } 
+                                                    } 
+                                                } 
+                                            } 
+                                        } 
+                                    } 
+                                } 
+                            } 
+                        } 
+                    } 
+                } 
+            } 
+        } 
+        if (exists!='true') { 
+            document.all.endtext.value='这四个数算不出24点！' 
+        } 
+    }
+    function checkvalue(a) { 
+        var b 
+        b=eval(a) 
+        return (b) 
+    }
+    function FnCheckInput(Evcode,Evid) { 
+        obj=Evid 
+        objvalue=document.all(Evid).value 
+        if ((Evcode<48)||(Evcode>57)) { 
+            alert('请输入合法数字') 
+            window.setTimeout("FnWrite(obj,objvalue)",10); 
+        } 
+    }
+    function FnWrite(Evid,Evvalue) { 
+        document.all(Evid).value=Evvalue 
+    }
+</script>
+</html>

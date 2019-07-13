@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/search.css">
+    <title>精选店铺</title>
+    <style>
+        .content{
+            width: 100%;
+            height: 600px;
+            background-image: url('images/type_detail.png');
+            background-size: 100% 100%;
+        }
+        .header{
+            font-size: 20px;
+            font-weight:bold;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .header span{
+            padding: 0px 20px;
+        }
+        .header span:hover{
+            background-color: #409eff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+            <div class="status"></div>
+            <div class="search">
+                    <input type="text" class="search-input" placeholder="请输入关键字搜索">
+                </div>
+        <div class="header">
+            <span>场景分类</span>
+            <span onclick="detail()">商品分类</span>
+            <span>精选店铺</span>
+        </div>
+        <div class="content">
+        </div>
+        <div class="nav">
+                <ul class="nav-but">
+                    <li id="but1" onclick="openRush(3)"></li>
+                    <li id="but2" onclick="openRush(4)"></li>
+                    <li id="but3" onclick="openRush(5)"></li>
+                    <li id="but4" onclick="openRush(6)"></li>
+                    <li id="but5" onclick="openRush(7)"></li>
+                </ul>
+            </div>
+    </div>
+</body>
+<script>
+    function detail() {
+        window.location.href="type.html"
+    }
+    function openRush(num) {
+        switch(num) {
+            case 1 : window.location.href="rush.html"; break;
+            case 2 : window.location.href="only.html"; break;
+            case 3 : window.location.href="index.html"; break;
+            case 4 : window.location.href="gift.html"; break;
+            case 5 : window.location.href="type.html"; break;
+            case 6 : window.location.href="shopCar.html"; break;
+            case 7 : window.location.href="mine.html"; break;
+        }
+        
+    }
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第三题</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 1000px;
+            margin: 0 auto;
+            padding-top: 10px;
+            position: relative;
+        }
+        .nav div{
+            display: inline-block;
+            line-height: 45px;
+            background-color: #409eff;
+            border-radius: 4px;
+            padding: 0px 10px;
+            cursor: pointer;
+        }
+        #a1 div{
+            width: 80px;
+            background-color: #b8bed8;;
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+            border-radius: 4px;
+        }
+        #a2 div{
+            width: 80px;
+            background-color: #b8bed8;;
+            padding: 10px;
+            border-bottom: 1px solid #fff;
+            border-radius: 4px;
+        }
+        #a1,#a2{
+            display: none;
+            position: absolute;
+            cursor: pointer;
+        }
+        #a2{
+            left: 105px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="nav">
+            <div onmouseover="showDiv1()" onmouseout="hideDiv1()">大熊猫文化</div>
+            <div onmouseover="showDiv2()" onmouseout="hideDiv2()">大熊猫种类</div>
+        </div>
+        <div id="a1" onmouseover="showDiv1()">
+            <div>起源</div>
+            <div>纪录片</div>
+            <div>古今命名</div>
+        </div>
+        <div id="a2" onmouseover="showDiv2()">
+            <div>西安大熊猫</div>
+            <div>成都大熊猫</div>
+        </div>
+    </div>
+</body>
+<script>
+    function showDiv1() {
+        document.getElementById('a1').style.display = 'block';
+        document.getElementById('a2').style.display = 'none';
+    }
+    function hideDiv1() {
+        document.getElementById('a1').style.display = 'none';
+    }
+    function showDiv2() {
+        document.getElementById('a2').style.display = 'block';
+        document.getElementById('a1').style.display = 'none';
+    }
+    function hideDiv2() {
+        document.getElementById('a2').style.display = 'none';
+    }
+</script>
+</html>

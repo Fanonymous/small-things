@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标题滚动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #scrollobj{
+            white-space:nowrap;
+            overflow:hidden;
+            width:500px;
+            margin:50px auto;
+            color: #409eff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="scrollobj">编码的世界无限伟大。</div>
+    <div style="border-top: 1px solid;"></div>
+    
+</body>
+<script>
+    function scroll(obj){
+        var tmp=(obj.scrollLeft)++;
+        if(obj.scrollLeft==tmp){
+            obj.innerHTML += obj.innerHTML;
+        }
+        if(obj.scrollLeft>=obj.firstChild.offsetWidth){
+            obj.scrollLeft=0;
+        }
+    }
+    setInterval("scroll(document.getElementById('scrollobj'))",50);
+</script>
+</html>

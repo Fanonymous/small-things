@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户注册</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .label{
+            display: inline-block;
+            padding-left: 20px;
+            width: 110px;
+        }
+        .wrapper{
+            width: 1000px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            margin-top: 20px;
+        }
+        .title-tip{
+            font-weight: bold;
+            padding: 10px;
+        }
+        .row{
+            border-bottom: 1px solid #DCDFE6;
+            line-height: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="form">
+        <div class="required-mess">
+            <div class="title-tip">必填信息</div>
+            <div class="row">
+                <div class="label">用户名:</div>
+                <input type="text" id="name">
+                <span>4-16个字符(包括4、16)，由英文、数字、下划线组成。</span>
+                <span id="nameTip"></span>
+            </div>
+            <div class="row">
+                <div class="label">密码:</div>
+                <input type="password" id="password">
+                <span>6个字符以上，用英文字母、数字和符号，注意大小写区别。</span>
+            </div>
+            <div class="row">
+                <div class="label">密码确认:</div>
+                <input type="password">
+            </div>
+            <div class="row">
+                <div class="label">密码提示问题:</div>
+                <input type="text">
+            </div>
+            <div class="row">
+                <div class="label">提示问题答案:</div>
+                <input type="text">
+                <span>忘记密码时用这个重新设置密码，答案长度在4-20位之间(一个汉字俩位)。</span>
+            </div>
+            <div class="row">
+                <div class="label">EMAIL:</div>
+                <input type="text" id="email">
+                <span>电子邮件地址不支持全角符号</span>
+            </div>
+            <div class="row">
+                <div class="label">验证码:</div>
+                <input type="text" id="code_input">
+                <div id="v_container" style="width: 100px;height:35px;display:inline-block;position: relative;top: 5px;"></div>
+            </div>
+        </div>
+        <div class="no-required">
+            <div class="title-tip">选填信息</div>
+            <div class="row">
+                <div class="label">姓名:</div>
+                <input type="text">
+            </div>
+            <div class="row">
+                <div class="label">出生日期:</div>
+                <input type="text" style="width: 60px;"><span>年</span><input type="text" style="width: 30px;"><span>月</span><input type="text" style="width: 30px;"><span>月</span>
+            </div>
+            <div class="row">
+                <div class="label">身份证号码:</div>
+                <input type="text">
+            </div>
+            <div class="row">
+                <div class="label">联系电话:</div>
+                <input type="text">
+            </div>
+            <div class="row">
+                <div class="label">联系地址:</div>
+                <input type="text">
+            </div>
+
+            <div class="row">
+                <input type="hidden" value="0002543">
+                <input type="hidden" value="张三">
+            </div>
+        </div>
+        <div style="line-height: 32px;">
+            <button style="margin-left: 500px;" onclick="confirmMess()">提交</button>
+            <button onclick="formReset()">清空</button>
+        </div>
+        </form>
+    </div>
+</body>
+<script src="./gVerify.js"></script>
+<script src="./jquery.min.js"></script>
+<script>
+    var verifyCode = new GVerify("v_container");
+
+    function formReset() {
+        document.getElementById("form").reset()
+    }
+    function confirmMess() {
+        var strArr = [];
+        var uPattern = /^[a-zA-Z0-9_-]{4,16}$/;
+        var name  = $('#name').val();
+        !uPattern.test(name) && (strArr.push('用户名格式不正确'))
+
+        var pPattern = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
+        var password = $('#password').val();
+        !pPattern.test(password) && (strArr.push('密码格式不正确'));
+
+        var ePattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        var email = $('#email').val();
+        !ePattern.test(email) && (strArr.push('邮箱格式不正确'));
+
+        var res = verifyCode.validate(document.getElementById("code_input").value);
+        !res && (strArr.push('验证码错误'))
+        if (strArr.length) {
+            alert(strArr.join(','))
+        }else {
+            alert('提交成功')
+        }
+    }
+</script>
+</html>

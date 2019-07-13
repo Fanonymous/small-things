@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人信息设置</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .label{
+            display: inline-block;
+            padding-right: 10px;
+        }
+        .row-left{
+            border-bottom: 1px solid #DCDFE6;
+            line-height: 32px;
+        }
+        .wrapper{
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid #000;
+            margin-top: 10px;
+        }
+        .left-box{
+            width: 50%;
+            border-right: 1px solid #DCDFE6;
+        }
+        .right-box{
+            width: 50%;
+            position: absolute;
+            top: 35px;
+            left: 50%;
+        }
+        .right-box span{
+            padding: 5px 17px;
+        }
+        .fileBox{
+            position: relative;
+            display: inline-block;
+        }
+        .fileButton{
+            display: inline-block;
+            width: 60px;
+            height: 19px;
+            line-height: 19px;
+            text-align: center;
+            margin-left: 5px;
+        }
+        .file1{
+            width: 60px;
+            height: 19px;
+            position: absolute;
+            top: 5px;
+            right: 0px;
+            opacity: 0;
+            filter:Alpha(opacity=0);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:#909399;line-height: 32px;">个人真实信息(以下内容建议填写)</div>
+        <form id="form">
+            <div class="left-box">
+                <div class="row-left">
+                    <div class="label">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像:</div>
+                    <div class="fileBox">
+                        <input type="text">
+                        <button class="fileButton">浏览...</button>
+                        <input type="file" class="file1">
+                    </div>
+                    <button>上传</button>
+                </div>
+                <div class="row-left">
+                    <div class="label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</div>
+                    <input type="radio" name="sex" value="0">酷哥
+                    <input type="radio" name="sex" value="1" checked>靓妹
+                </div>
+                <div class="row-left">
+                    <div class="label">联系电话:</div>
+                    <input type="text">
+                </div>
+                <div class="row-left">
+                    <div class="label">通信地址:</div>
+                    <input type="text">
+                </div>
+                <div class="row-left">
+                    <div class="label">省&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;份:</div>
+                    <select name="province">
+                        <option value="陕西">湖北</option>
+                        <option value="山西">陕西</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">城&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;市:</div>
+                    <select name="city">
+                        <option value="武汉">武汉</option>
+                        <option value="西安">西安</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;肖:</div>
+                    <select name="zodica">
+                        <option value="西安">鼠</option>
+                        <option value="武汉">牛</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型:</div>
+                    <select name="blood">
+                        <option value="O">O</option>
+                        <option value="A">A</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">信&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;仰:</div>
+                    <select name="faith">
+                        <option value="其他">其他</option>
+                        <option value="佛教">佛教</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业:</div>
+                    <select name="job">
+                        <option value="教育/培训">教育/培训</option>
+                        <option value="工人">工人</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">婚姻状况:</div>
+                    <select name="marrage">
+                        <option value="已婚">已婚</option>
+                        <option value="未婚">未婚</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">最高学历:</div>
+                    <select name="education">
+                        <option value="大学">大学</option>
+                        <option value="高中">高中</option>
+                    </select>
+                </div>
+                <div class="row-left">
+                    <div class="label">毕业学校:</div>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="right-box">
+                <div style="padding-left:14px">性格:</div>
+                <span><input type="checkbox" name="character">多重性格</span>
+                <span><input type="checkbox" name="character">乐天达观</span>
+                <span><input type="checkbox" name="character">成熟稳重</span>
+                <span><input type="checkbox" name="character">幼稚调皮</span>
+                <span><input type="checkbox" name="character">温柔体贴</span>
+                <span><input type="checkbox" name="character">活泼可爱</span>
+                <span><input type="checkbox" name="character">普普通通</span>
+                <span><input type="checkbox" name="character">内向害羞</span>
+                <span><input type="checkbox" name="character">外向开朗</span>
+                <span><input type="checkbox" name="character">心地善良</span>
+                <span><input type="checkbox" name="character">聪明伶俐</span>
+                <span><input type="checkbox" name="character">善解人意</span>
+                <span><input type="checkbox" name="character">风趣幽默</span>
+                <span><input type="checkbox" name="character">思想开放</span>
+                <span><input type="checkbox" name="character">积极进取</span>
+                <span><input type="checkbox" name="character">小心谨慎</span>
+                <span><input type="checkbox" name="character">郁郁寡欢</span>
+                <span><input type="checkbox" name="character">正义正直</span>
+                <span><input type="checkbox" name="character">悲观失意</span>
+                <span><input type="checkbox" name="character">好吃懒做</span>
+                <span><input type="checkbox" name="character">处事洒脱</span>
+                <span><input type="checkbox" name="character">疑神疑鬼</span>
+                <span><input type="checkbox" name="character">患得患失</span>
+                <span><input type="checkbox" name="character">异想天开</span>
+                <span><input type="checkbox" name="character">多愁善感</span>
+                <span><input type="checkbox" name="character">淡泊名利</span>
+                <span><input type="checkbox" name="character">见利忘义</span>
+                <span><input type="checkbox" name="character">瞻前顾后</span>
+                <span><input type="checkbox" name="character">循规蹈矩</span>
+                <span><input type="checkbox" name="character">热心助人</span>
+                <span><input type="checkbox" name="character">快言快语</span>
+                <span><input type="checkbox" name="character">少言寡语</span>
+                <span><input type="checkbox" name="character">爱管闲事</span>
+                <span><input type="checkbox" name="character">追求刺激</span>
+                <span><input type="checkbox" name="character">豪放不羁</span>
+                <span><input type="checkbox" name="character">狡猾多变</span>
+                <span><input type="checkbox" name="character">贪小便宜</span>
+                <span><input type="checkbox" name="character">见异思迁</span>
+                <span><input type="checkbox" name="character">情绪多变</span>
+                <span><input type="checkbox" name="character">水性杨花</span>
+                <span><input type="checkbox" name="character">重色轻友</span>
+                <span><input type="checkbox" name="character">胆小怕事</span>
+                <span><input type="checkbox" name="character">积极负责</span>
+                <span><input type="checkbox" name="character">勇敢正义</span>
+                <span><input type="checkbox" name="character">聪明好学</span>
+                <span><input type="checkbox" name="character">实事求是</span>
+                <span><input type="checkbox" name="character">务实实际</span>
+                <span><input type="checkbox" name="character">老实巴交</span>
+                <span><input type="checkbox" name="character">圆滑老练</span>
+                <span><input type="checkbox" name="character">脾气暴躁</span>
+                <span><input type="checkbox" name="character">慢条斯理</span>
+                <span><input type="checkbox" name="character">城市坦白</span>
+                <span><input type="checkbox" name="character">婆婆妈妈</span>
+                <span><input type="checkbox" name="character">急性子</span>
+                <div style="padding: 10px 0 5px 14px;">个人简介:</div>
+                <textarea name="" id="" cols="76" rows="8" style="margin-left: 14px"></textarea>          
+            </div>
+            <div class="row">
+                <input type="hidden" value="0002543">
+                <input type="hidden" value="张三">
+            </div>
+        </form>
+        <div style="background-color: #C0C4CC;">
+            <button style="margin-left: 80%" onclick="update()">更新</button>
+            <button onclick="formReset()">清除</button>
+        </div>
+    </div>
+    <script>
+        function formReset() {
+            document.getElementById("form").reset()
+        }
+        function update() {
+            alert('更新成功！');
+        }
+    </script>
+</body>
+</html>

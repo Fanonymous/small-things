@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/search.css">
+    <title>我的</title>
+    <style>
+        .content{
+            width: 100%;
+            height: 600px;
+            background-image: url('images/mine_bg.png');
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .header{
+            font-size: 20px;
+            font-weight:bold;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .sp{
+            position: absolute;
+            top: 231px;
+            left: 204px;
+            padding: 0 30px;
+            cursor: pointer;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+            <div class="status"></div>
+        <div class="content">
+            <span class="sp" onclick="back()">查看全部订单</span>
+        </div>
+        <div class="nav">
+                <ul class="nav-but">
+                    <li id="but1" onclick="openRush(3)"></li>
+                    <li id="but2" onclick="openRush(4)"></li>
+                    <li id="but3" onclick="openRush(5)"></li>
+                    <li id="but4" onclick="openRush(6)"></li>
+                    <li id="but5" onclick="openRush(7)"></li>
+                </ul>
+            </div>
+    </div>
+</body>
+<script>
+    function back() {
+        window.location.href="all_detail.html"
+    }
+    function openRush(num) {
+        switch(num) {
+            case 1 : window.location.href="rush.html"; break;
+            case 2 : window.location.href="only.html"; break;
+            case 3 : window.location.href="index.html"; break;
+            case 4 : window.location.href="gift.html"; break;
+            case 5 : window.location.href="type.html"; break;
+            case 6 : window.location.href="shopCar.html"; break;
+            case 7 : window.location.href="mine.html"; break;
+        }
+        
+    }
+</script>
+</html>
